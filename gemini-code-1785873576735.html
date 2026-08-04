@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duo Net - Internet 100% Fibra Óptica</title>
+    <!-- Google Fonts & FontAwesome para ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0b2545;
+            --accent-blue: #134074;
+            --neon-blue: #00b4d8;
+            --orange: #f77f00;
+            --dark: #1e1e1e;
+            --light: #f8f9fa;
+            --whatsapp-green: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* Top Bar / Aviso de Lançamento */
+        .top-bar {
+            background: linear-gradient(135deg, var(--orange), #d65a00);
+            color: white;
+            text-align: center;
+            padding: 10px 15px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+        }
+
+        .logo-area h1 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo-area span {
+            color: var(--orange);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--orange);
+        }
+
+        .btn-cliente {
+            background: var(--primary-blue);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #caf0f8;
+        }
+
+        /* Vantagens / Destaques */
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: -30px auto 40px auto;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 0.95rem;
+        }
+
+        .feature-card i {
+            color: var(--orange);
+            font-size: 1.2rem;
+        }
+
+        /* Planos Section */
+        .plans-section {
+            padding: 50px 8%;
+            text-align: center;
+        }
+
+        .plans-section h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            border-color: var(--orange);
+        }
+
+        .plan-header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 20px;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .plan-header span {
+            font-size: 0.9rem;
+            display: block;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .plan-body {
+            padding: 25px 20px;
+        }
+
+        .old-price {
+            font-size: 0.95rem;
+            color: #888;
+            text-decoration: line-through;
+        }
+
+        .current-price {
+            font-size: 1.8rem;
+            color: var(--orange);
+            font-weight: 900;
+            margin: 10px 0 20px 0;
+        }
+
+        .current-price small {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .plan-features i {
+            color: #2a9d8f;
+            margin-right: 8px;
+        }
+
+        .btn-plan {
+            display: block;
+            background: var(--orange);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .btn-plan:hover {
+            background: #d65a00;
+        }
+
+        /* Banner Brinde / Diferenciais Extras */
+        .promo-banner {
+            background: #eef4f8;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .promo-banner h4 {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .promo-banner p {
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* CTA WhatsApp Global */
+        .whatsapp-section {
+            background: linear-gradient(135deg, var(--whatsapp-green), #1ebe57);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 40px;
+        }
+
+        .whatsapp-section h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--whatsapp-green);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsividade */
+        @media(max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOPO -->
+    <div class="top-bar">
+        🚀 ESQUENTA DE LANÇAMENTO — CHEGADA EM SUA REGIÃO!
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-area">
+            <h1>DUO<span>NET</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#planos">Planos</a></li>
+                <li><a href="#vantagens">Vantagens</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="https://wa.me/5585998014122" class="btn-cliente" target="_blank"><i class="fa-solid fa-user"></i> Área do Cliente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>A Verdadeira Internet de Alta Velocidade Chegou!</h2>
+        <p>Conexão ultra estável direto na sua casa com 100% Fibra Óptica.</p>
+    </section>
+
+    <!-- DIFERENCIAIS FLUTUANTES -->
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fa-solid fa-shield-halved"></i> Suporte Especializado
+        </div>
+        <div class="feature-card">
+            <i class="fa-solid fa-network-wired"></i> 100% Fibra Óptica
+        </div>
+        <div class="feature-card">
+            <i class="fa-solid fa-key"></i> Instalação Gratuita
+        </div>
+        <div class="feature-card">
+            <i class="fa-solid fa-wifi"></i> Wi-Fi 6
+        </div>
+    </div>
+
+    <!-- PLANOS -->
+    <section class="plans-section" id="planos">
+        <h3>Escolha seu Plano Ideal</h3>
+        
+        <div class="plans-grid">
+            <!-- PLANO 200 MEGA -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    200 MEGA
+                    <span>Ideal para uso básico</span>
+                </div>
+                <div class="plan-body">
+                    <span class="old-price">DE R$ 59,90</span>
+                    <div class="current-price">R$ 49,90<small>/mês</small></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Wi-Fi Turbo Grátis</li>
+                        <li><i class="fa-solid fa-check"></i> Sem Fila de Espera</li>
+                        <li><i class="fa-solid fa-check"></i> Instalação Imediata</li>
+                    </ul>
+                    <a href="https://wa.me/5585998014122?text=Olá,%20quero%20assinar%20o%20plano%20de%20200%20Mega!" class="btn-plan" target="_blank">Garantir Vaga</a>
+                </div>
+            </div>
+
+            <!-- PLANO 300 MEGA -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    300 MEGA
+                    <span>Para toda a família</span>
+                </div>
+                <div class="plan-body">
+                    <span class="old-price">DE R$ 79,90</span>
+                    <div class="current-price">R$ 59,90<small>/mês</small></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Wi-Fi Turbo Grátis</li>
+                        <li><i class="fa-solid fa-check"></i> Sem Fila de Espera</li>
+                        <li><i class="fa-solid fa-check"></i> Instalação Imediata</li>
+                    </ul>
+                    <a href="https://wa.me/5585998014122?text=Olá,%20quero%20assinar%20o%20plano%20de%20300%20Mega!" class="btn-plan" target="_blank">Garantir Vaga</a>
+                </div>
+            </div>
+
+            <!-- PLANO 500 MEGA -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    500 MEGA
+                    <span>Alta Performance</span>
+                </div>
+                <div class="plan-body">
+                    <span class="old-price">DE R$ 89,90</span>
+                    <div class="current-price">R$ 69,90<small>/mês</small></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Wi-Fi Turbo Grátis</li>
+                        <li><i class="fa-solid fa-check"></i> Sem Fila de Espera</li>
+                        <li><i class="fa-solid fa-check"></i> Instalação Imediata</li>
+                    </ul>
+                    <a href="https://wa.me/5585998014122?text=Olá,%20quero%20assinar%20o%20plano%20de%20500%20Mega!" class="btn-plan" target="_blank">Garantir Vaga</a>
+                </div>
+            </div>
+
+            <!-- PLANO 700 MEGA -->
+            <div class="plan-card" style="border: 2px solid var(--orange);">
+                <div class="plan-header" style="background: var(--orange);">
+                    700 MEGA
+                    <span>SUPER OFERTA</span>
+                </div>
+                <div class="plan-body">
+                    <span class="old-price">DE R$ 99,90</span>
+                    <div class="current-price">R$ 79,90<small>/mês</small></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Wi-Fi Turbo Grátis</li>
+                        <li><i class="fa-solid fa-check"></i> Sem Fila de Espera</li>
+                        <li><i class="fa-solid fa-check"></i> Instalação Imediata</li>
+                    </ul>
+                    <a href="https://wa.me/5585998014122?text=Olá,%20quero%20assinar%20a%20Super%20Oferta%20de%20700%20Mega!" class="btn-plan" target="_blank">Garantir Vaga</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER BRINDE -->
+    <div class="promo-banner" id="vantagens">
+        <h4>🎁 BRINDE ESPECIAL PARA AS 100 PRIMEIRAS INSTALAÇÕES!</h4>
+        <p>Atendimento rápido • Equipe de manutenção exclusiva na sua região!</p>
+    </div>
+
+    <!-- SEÇÃO CONTATO WHATSAPP -->
+    <section class="whatsapp-section" id="contato">
+        <h3>Chame no WhatsApp e Garanta sua Vaga:</h3>
+        <p>Não perca tempo com conexões lentas. Fale direto com nossa equipe!</p>
+        <a href="https://wa.me/5585998014122?text=Olá,%20vim%20pelo%20site%20e%20quero%20garantir%20minha%20internet%20Duo%20Net!" class="whatsapp-btn" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> (85) 9 9801-4122
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Duo Net - Todos os direitos reservados. 100% Fibra Óptica.</p>
+    </footer>
+
+</body>
+</html>
